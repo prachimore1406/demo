@@ -1,0 +1,63 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: CloudFormation template to deploy an EC2 instance
+
+Parameters:
+  InstanceName:
+    Description: Name of the EC2 instance
+    Type: String
+    Default: DB
+  Application:
+    Description: Name of the Application
+    Type: String
+    Default: MongoDB
+  Domain:
+    Description: Domain of the instance
+    Type: String
+    AllowedValues:
+      - Manufacturing
+      - Retail
+      - HealthCare
+    Default: HealthCare
+  Environment:
+    Description: Environment of the instance
+    Type: String
+    AllowedValues:
+      - Dev
+      - Test
+      - Prod
+    Default: Test
+
+Resources:
+  EC2Instance:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      InstanceType: !If
+        - IsDev
+        - t3.micro
+        - !If
+          - IsTest
+          - t3.large
+          - t5.xlarge
+      SecurityGroupIds:
+        - !Sub '{{resolve:ssm:${Domain}/resources/SG_id}}'
+      ImageId: !Sub '{{resolve:ssm:${Domain}/resources/ami_id}}'
+      SubnetId: !Sub '{{resolve:ssm:${Domain}/resources/psubnet_id}}'
+      Tags:
+        - Key: Name
+          Value: !Ref InstanceName
+        - Key: Application
+          Value: !Ref Application
+        - Key: Domain
+          Value: !Ref Domain
+        - Key: Environment
+          Value: !Ref Environment
+
+Conditions:
+  IsDev: !Equals [ !Ref Environment, "Dev" ]
+  IsTest: !Equals [ !Ref Environment, "Test" ]
+  IsProd: !Equals [ !Ref Environment, "Prod" ]
+
+Outputs:
+  InstanceId:
+    Description: The Instance ID
+    Value: !Ref EC2Instance
