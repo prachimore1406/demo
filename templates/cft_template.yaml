@@ -1,0 +1,40 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: CloudFormation template for Manufacturing domain in Test environment
+
+Parameters:
+  SecurityGroupId:
+    Type: 'AWS::SSM::Parameter::Value<String>'
+    Default: '/manufacturing/resources/SG_id'
+  AMIId:
+    Type: 'AWS::SSM::Parameter::Value<String>'
+    Default: '/manufacturing/resources/ami_id'
+  PublicSubnetId:
+    Type: 'AWS::SSM::Parameter::Value<String>'
+    Default: '/manufacturing/resources/psubnet_id'
+  PrivateSubnetId:
+    Type: 'AWS::SSM::Parameter::Value<String>'
+    Default: '/manufacturing/resources/privatesubnet_id'
+
+Resources:
+  EC2Instance:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      InstanceType: 't3.large'
+      SecurityGroupIds:
+        - !Ref SecurityGroupId
+      ImageId: !Ref AMIId
+      SubnetId: !Ref PublicSubnetId
+      Tags:
+        - Key: 'Name'
+          Value: 'web'
+        - Key: 'Application'
+          Value: 'nginx'
+        - Key: 'Domain'
+          Value: 'Manufacturing'
+        - Key: 'Environment'
+          Value: 'Test'
+
+Outputs:
+  InstanceId:
+    Description: The Instance ID
+    Value: !Ref EC2Instance
