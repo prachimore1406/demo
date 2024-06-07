@@ -1,7 +1,7 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Description: CloudFormation template for Retail domain in Test environment
 
-# This is a new comment added to create a new commit in the features branch
+# This is an updated comment to create a new commit in the features branch
 
 Parameters:
   SecurityGroupId:
