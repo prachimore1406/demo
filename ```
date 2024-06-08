@@ -1,0 +1,38 @@
+emplates/cft_template.yaml
+
+AWSTemplateFormatVersion: '2010-09-09'
+Description: CloudFormation template for Retail domain in Test environment
+
+Parameters:
+  SecurityGroupId:
+    Type: 'AWS::SSM::Parameter::Value<String>'
+    Default: '/retail/resources/SG_id'
+  AMIId:
+    Type: 'AWS::SSM::Parameter::Value<String>'
+    Default: '/retail/resources/ami_id'
+  PublicSubnetId:
+    Type: 'AWS::SSM::Parameter::Value<String>'
+    Default: '/retail/resources/psubnet_id'
+  PrivateSubnetId:
+    Type: 'AWS::SSM::Parameter::Value<String>'
+    Default: '/retail/resources/privatesubnet_id'
+
+Resources:
+  EC2Instance:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      InstanceType: 't3.large'
+      SecurityGroupIds:
+        - !Ref SecurityGroupId
+      ImageId: !Ref AMIId
+      SubnetId: !Ref PublicSubnetId
+      Tags:
+        - Key: 'Name'
+          Value: 'web'
+        - Key: 'Application'
+          Value: 'nginx'
+        - Key: 'Domain'
+          Value: 'Retail'
+        - Key: 'Environment'
+          Value: 'Test'
+```
