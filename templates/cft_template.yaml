@@ -1,0 +1,35 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: CloudFormation template for Retail domain in Dev environment
+
+Parameters:
+  SecurityGroupID:
+    Type: 'AWS::SSM::Parameter::Value<String>'
+    Default: '/retail/resources/SG_id'
+  AMIID:
+    Type: 'AWS::SSM::Parameter::Value<String>'
+    Default: '/retail/resources/ami_id'
+  PublicSubnetID:
+    Type: 'AWS::SSM::Parameter::Value<String>'
+    Default: '/retail/resources/psubnet_id'
+  PrivateSubnetID:
+    Type: 'AWS::SSM::Parameter::Value<String>'
+    Default: '/retail/resources/privatesubnet_id'
+
+Resources:
+  EC2Instance:
+    Type: 'AWS::EC2::Instance'
+    Properties: 
+      InstanceType: 't3.micro'
+      SecurityGroupIds: 
+        - !Ref SecurityGroupID
+      ImageId: !Ref AMIID
+      SubnetId: !Ref PublicSubnetID
+      Tags:
+        - Key: Name
+          Value: 'web'
+        - Key: Application
+          Value: 'nginx'
+        - Key: Domain
+          Value: 'Retail'
+        - Key: Environment
+          Value: 'Dev'
