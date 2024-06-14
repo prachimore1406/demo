@@ -1,0 +1,10 @@
+Type: ALB
+Name: ALB1  # Name of new ALB for the new API
+DataClassification: Confidential
+Cert: ARN 1
+DNS: api3.com
+TargetGroup:
+- Path: /*
+  TargetGroup: api3-ec2asg   # Target Group of the respective API
+  HealthCheckPath: /
+  HealthCheckStatusCode: 200
