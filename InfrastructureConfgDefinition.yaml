@@ -1,0 +1,25 @@
+Platformid: Cards-Platform1
+AWSAccountName: payments-account
+
+APP-CI:
+  - id: CI-API-1
+    description: Cards-Platform-API1
+    PublicSubnet:
+    PrivateSubnet:
+      - api1-alb.yaml
+      - api1-ec2asg.yaml
+    DatabaseSubnet:
+  - id: CI-API-2
+    description: Cards-Platform-API2
+    PublicSubnet:
+    PrivateSubnet:
+      - api2-alb.yaml
+      - api2-ec2asg.yaml
+    DatabaseSubnet:
+  - id: CI-API-3
+    description: Cards-Platform-API3
+    PublicSubnet:
+    PrivateSubnet:
+      - api3-alb.yaml
+      - api3-ec2asg.yaml
+    DatabaseSubnet:
