@@ -1,0 +1,9 @@
+Platformid: Cards-Platform1
+apps:
+  - name: api3
+    runscripts: files/script.sh
+    nugetId: 3
+    version: 1.1
+    app-ci: CI-API-3
+    subnet: PrivateSubnet
+    targetGroup: api3-ec2asg
