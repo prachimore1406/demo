@@ -1,0 +1,14 @@
+```yaml
+# Content for api3-alb.yaml
+apiVersion: v1
+kind: Template
+metadata:
+  name: api3-alb
+spec:
+  description: Application Load Balancer for API3
+  resources:
+    - name: alb
+      type: AWS::ElasticLoadBalancingV2::LoadBalancer
+      properties:
+        ...
+```
