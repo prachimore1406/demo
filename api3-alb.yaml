@@ -1,0 +1,10 @@
+Type: ALB
+Name: ALB-3
+DataClassification: public
+Cert: ARN-3
+DNS: api3.com
+TargetGroup:
+  - Path: /*
+    TargetGroup: api3-ec2asg
+    HealthCheckPath: /
+    HealthCheckStatusCode: 200
