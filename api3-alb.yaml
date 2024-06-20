@@ -1,0 +1,17 @@
+```yaml
+# Content for api3-alb.yaml
+Resources:
+  LoadBalancer:
+    Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+    Properties:
+      Name: MyLoadBalancer
+      Subnets:
+        - subnet-12345678
+        - subnet-87654321
+      SecurityGroups:
+        - sg-12345678
+      Scheme: internet-facing
+      LoadBalancerAttributes:
+        - Key: idle_timeout.timeout_seconds
+          Value: '60'
+```
