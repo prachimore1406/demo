@@ -1,0 +1,10 @@
+Type: EC2ASG
+Name: api3-ec2asg
+DataClassification: Confidential
+Os: ubuntu
+InstanceType: t3.micro
+EBSSizeInGB: 50
+ASGDesiredCapacity: 3
+ASGInstanceCountMin: 1
+ASGInstanceCountMax: 5
+ASGCPUScaleThreshold: 80
