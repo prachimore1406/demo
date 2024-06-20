@@ -1,0 +1,14 @@
+```yaml
+# Content for api3.yaml
+apiVersion: v1
+kind: Template
+metadata:
+  name: api3
+spec:
+  description: API3 Service
+  resources:
+    - name: api3Service
+      type: AWS::ECS::Service
+      properties:
+        ...
+```
