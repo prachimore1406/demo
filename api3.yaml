@@ -1,0 +1,10 @@
+```yaml
+# Content for api3.yaml
+Resources:
+  ApiGateway:
+    Type: AWS::ApiGateway::RestApi
+    Properties:
+      Name: MyApi
+      Description: API for my application
+      FailOnWarnings: true
+```
