@@ -1,0 +1,14 @@
+```yaml
+# Content for InfrastructureConfgDefinition.yaml
+apiVersion: v1
+kind: Template
+metadata:
+  name: infrastructure-config
+spec:
+  description: Infrastructure Configuration Definition
+  resources:
+    - name: vpc
+      type: AWS::EC2::VPC
+      properties:
+        ...
+```
