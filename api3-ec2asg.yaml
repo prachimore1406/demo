@@ -1,0 +1,14 @@
+```yaml
+# Content for api3-ec2asg.yaml
+apiVersion: v1
+kind: Template
+metadata:
+  name: api3-ec2asg
+spec:
+  description: EC2 Auto Scaling Group for API3
+  resources:
+    - name: ec2asg
+      type: AWS::AutoScaling::AutoScalingGroup
+      properties:
+        ...
+```
