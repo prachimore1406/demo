@@ -1,0 +1,17 @@
+```yaml
+# Content for api3-ec2asg.yaml
+Resources:
+  AutoScalingGroup:
+    Type: AWS::AutoScaling::AutoScalingGroup
+    Properties:
+      AvailabilityZones:
+        - us-west-2a
+        - us-west-2b
+      LaunchConfigurationName: !Ref LaunchConfig
+      MinSize: '1'
+      MaxSize: '3'
+      DesiredCapacity: '2'
+      VPCZoneIdentifier:
+        - subnet-12345678
+        - subnet-87654321
+```
