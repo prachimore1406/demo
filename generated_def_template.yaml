@@ -1,0 +1,14 @@
+```yaml
+# Content for generated_def_template.yaml
+apiVersion: v1
+kind: Template
+metadata:
+  name: generated-def-template
+spec:
+  description: Generated Definition Template
+  resources:
+    - name: generatedResource
+      type: Custom::GeneratedResource
+      properties:
+        ...
+```
