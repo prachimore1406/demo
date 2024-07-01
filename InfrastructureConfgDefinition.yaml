@@ -1,0 +1,25 @@
+Platformid: auto-platform
+AWSAccountName: auto-dev-acc
+
+APP-CI:
+  - id: CI-API-1
+    description: auto-platform-API1
+    PublicSubnet:
+    PrivateSubnet:
+      - api1-alb.yml
+      - api1-ec2asg.yml
+    DatabaseSubnet:
+  - id: CI-API-2
+    description: auto-platform-API2
+    PublicSubnet:
+    PrivateSubnet:
+      - api2-alb.yaml
+      - api2-ec2asg.yaml
+    DatabaseSubnet:
+  - id: CI-API-3
+    description: auto-platform-API3
+    PublicSubnet:
+    PrivateSubnet:
+      - api3-alb.yaml
+      - api3-ec2asg.yaml
+    DatabaseSubnet:
