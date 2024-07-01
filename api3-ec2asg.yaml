@@ -1,0 +1,11 @@
+Type: EC2ASG
+Name: api3-ec2asg
+DataClassification: Confidential
+Os: Windows Server 2019
+InstanceType: t3.medium
+EBSSizeInGB: 50
+WinDDriveSizeInGB: 100
+ASGDesiredCapacity: 2
+ASGInstanceCountMin: 1
+ASGInstanceCountMax: 3
+ASGCPUScaleThreshold: 75
