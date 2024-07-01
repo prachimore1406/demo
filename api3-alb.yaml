@@ -1,0 +1,10 @@
+Type: ALB
+Name: api3-alb
+DataClassification: Confidential
+Cert: ARN-12345 for SSL certificate
+DNS: api3.com
+TargetGroup:
+  - Path: /
+    TargetGroup: API3-TG
+    HealthCheckPath: /
+    HealthCheckStatusCode: 200
