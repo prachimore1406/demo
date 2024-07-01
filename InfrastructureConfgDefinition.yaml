@@ -1,0 +1,11 @@
+Platformid: Auto-Platform
+AWSAccountName: auto-aws-account
+
+APP-CI:
+  - id: CI-API-3
+    description: Auto platform
+    PublicSubnet:
+    PrivateSubnet:
+      - api3-alb.yml
+      - api3-ec2asg.yml
+    DatabaseSubnet:
