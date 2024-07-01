@@ -1,0 +1,11 @@
+Platformid: retail platform  #user should provide platform ID
+AWSAccountName: retail-aws-account  # This is the AWS Account for the Platform
+
+APP-CI:  # high level container listing of all APIs
+  - id: CI-API-3    # ID for API 3
+    description: Retail-Platform-API3
+    PublicSubnet:
+    PrivateSubnet:
+      - api3-alb.yaml  # Infractruction Component Definition File Name for the API 3 ALB Component
+      - api3-ec2asg.yaml  # Infractruction Component Definition File Name for the API 3 EC2-AGG Component
+    DatabaseSubnet:
