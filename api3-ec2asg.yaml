@@ -1,0 +1,11 @@
+Type: EC2ASG
+Name: api3-ec2asg   # Name of new EC2-AGG for the new API
+DataClassification: Confidential
+Os: Windows Server 2019 Core
+InstanceType: t3.micro
+EBSSizeInGB: 50
+WinDDriveSizeInGB: 20  # Only for Windows OS
+ASGDesiredCapacity: 3
+ASGInstanceCountMin: 1
+ASGInstanceCountMax: 4
+ASGCPUScaleThreshold: 75
