@@ -1,0 +1,9 @@
+Platformid: auto-platform
+apps:
+  - name: API-3
+    runscripts: files/script.ps1
+    nugetId: 3
+    version: 3.1
+    app-ci: CI-API-3
+    subnet: PrivateSubnet
+    targetGroup: api3-ec2asg
