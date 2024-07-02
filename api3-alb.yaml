@@ -1,0 +1,10 @@
+Type: ALB
+Name: api3-alb
+DataClassification: Confidential
+Cert: arn:aws:acm:ap-southeast-2:1234567892:certificate/sdssaaa-ssss-222-aaa-eeeeeeee
+DNS: api3-alb
+TargetGroup:
+  - Path: /*
+    TargetGroup: api3-ec2asg
+    HealthCheckPath: /
+    HealthCheckStatusCode: 200
